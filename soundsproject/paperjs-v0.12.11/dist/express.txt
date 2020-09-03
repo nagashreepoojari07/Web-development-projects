@@ -1,0 +1,32 @@
+var express = require("express");
+var app = express();
+app.get("/",function(req,res){
+	res.send("hye there welcome to the assighnment")
+})
+app.get("/speak/:animalname",function(req,res){
+	var animal = req.params.animalname
+	console.log(req.params.animalname)
+	if(animal == "pig"){
+		res.send("the " +animal+ " says 'oink'")
+	}
+	if(animal == "cow"){
+		res.send("the " +animal+ " says 'moo'")
+	}
+	if(animal == "dog"){
+		res.send("the " +animal+ " says 'woof woof'")
+	}
+	
+})
+
+app.get("/repeat/:smthng/:num",function(req,res){
+	console.log(req.params.smthng,req.params.num)
+	res.send("hye there welcome to the assighnment!!")
+})
+
+app.get("*",function(req,res){
+	res.send("sorry!!page not found")
+})
+
+app.listen(3000,function(){
+	console.log("server has started!!")
+})
